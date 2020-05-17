@@ -1,3 +1,10 @@
+/* 
+  Improvements:
+    - focus the search subelements within elements (blog title inside form) using searching
+    - change the input's text values using the value attribute
+    - use await for changin events like mouse clicks or blur
+*/
+
 import { mount } from '@vue/test-utils'
 import AddBlog from '@/components/AddBlog.vue'
 
@@ -66,7 +73,7 @@ describe('AddBlog', () => {
   })
 
   it('preview section contains the "Blog title"', () => {
-    expect(wrapper.html()).toContain(
+    expect(wrapper.html().toContain(
       '<p>Blog title: </p>'
     );
   })
