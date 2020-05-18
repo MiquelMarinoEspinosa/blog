@@ -73,7 +73,7 @@ describe('AddBlog', () => {
   })
 
   it('preview section contains the "Blog title"', () => {
-    expect(wrapper.html().toContain(
+    expect(wrapper.html()).toContain(
       '<p>Blog title: </p>'
     );
   })
