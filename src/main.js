@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios'
+import VueRouter from 'vue-router'
+import Routes from './routes'
 
 Vue.prototype.$http = axios;
+Vue.use(VueRouter);
 
 Vue.directive('theme', {
   bind(el, binding){
@@ -24,6 +27,11 @@ Vue.filter('snippet', (value) => {
 
 Vue.config.productionTip = false
 
+const router = new VueRouter({
+  routes: Routes
+});
+
 new Vue({
   render: h => h(App),
+  router: router
 }).$mount('#app')
