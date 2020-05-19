@@ -3,11 +3,6 @@ import App from './App.vue'
 import axios from 'axios'
 
 Vue.prototype.$http = axios;
-Vue.directive('rainbow', {
-  bind(el){
-    el.style.color = "#" + Math.random().toString().slice(2,8);
-  }
-});
 
 Vue.directive('theme', {
   bind(el, binding){
@@ -21,10 +16,6 @@ Vue.directive('theme', {
       el.style.padding = '20px';
     }
   }
-});
-
-Vue.filter('to-uppercase', (value) => {
-  return value.toUpperCase();  
 });
 
 Vue.filter('snippet', (value) => {
