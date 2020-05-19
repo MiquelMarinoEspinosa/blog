@@ -1,10 +1,9 @@
 <template>
   <div id="show-blogs">
-    <h1>All Blog Articles</h1>
+    <h1>List Blog Titles</h1>
     <input type="text" v-model="search" placeholder="search blogs" />
     <div class="single-blog" v-for='(blog, index) in filteredBlogs' :key=index>
         <h2 v-rainbow>{{ blog.title | to-uppercase }}</h2>
-        <article>{{ blog.body | snippet }}</article>
     </div>
   </div>
 </template>
