@@ -3,8 +3,8 @@
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blogs" />
     <div class="single-blog" v-for='(blog, index) in filteredBlogs' :key=index>
-        <router-link v-bind:to="'/blog/' + blog.id"><h2 v-rainbow>{{ blog.title | to-uppercase }}</h2></router-link>
-        <article>{{ blog.body | snippet }}</article>
+        <router-link v-bind:to="'/blog/' + blog.id"><h2>{{ blog.title | to-uppercase }}</h2></router-link>
+        <article>{{ blog.content | snippet }}</article>
     </div>
   </div>
 </template>
@@ -23,8 +23,15 @@ export default {
 
     },
     created() {
-        this.$http.get('https://jsonplaceholder.typicode.com/posts').then((response) => {
-            this.blogs = response.data.slice(0,10);
+        this.$http.get('https://create-blog.firebaseio.com/posts.json').then((response) => {
+            var blogsArray = [];
+            var blog;
+            for (let key in response.data) {
+                blog = response.data[key];
+                blog['id'] = key;
+                blogsArray.push(blog);
+            }
+            this.blogs = blogsArray;
         });
     },
     computed: {
@@ -56,5 +63,25 @@ export default {
     margin: 20px 0;
     box-sizing: border-box;
     background: #eee;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: black;
+  text-decoration: none;
 }
 </style>
