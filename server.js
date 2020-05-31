@@ -1,5 +1,9 @@
+const redis = require("redis")
+const client = redis.createClient(6379, 'blog.redis_server')
+
 var express = require("express")
 var bodyParser = require('body-parser')
+
 var app = express()
 app.use(bodyParser.json())
 
@@ -19,5 +23,6 @@ app.get('/blog/:id', (req, res) => {
 });
 
 app.post('/blog', (req, res) => {
+    client.set('blog_' + req.body.id, JSON.stringify(req.body));
     res.sendStatus(200)
 });
