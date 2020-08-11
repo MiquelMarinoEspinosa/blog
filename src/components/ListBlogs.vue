@@ -7,7 +7,7 @@
       v-for="(blog, index) in filteredBlogs"
       :key="index"
     >
-      <h2 v-rainbow>{{ blog.title | (to - uppercase) }}</h2>
+      <h2 v-rainbow>{{ blog.title | uppercase }}</h2>
     </div>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
   },
   computed: {},
   filters: {
-    toUppercase(value) {
+    uppercase(value) {
       return value.toUpperCase();
     },
   },

@@ -8,7 +8,7 @@
       :key="index"
     >
       <router-link v-bind:to="'/blog/' + blog.id"
-        ><h2>{{ blog.title }}</h2></router-link
+        ><h2>{{ blog.title | uppercase }}</h2></router-link
       >
       <article>{{ blog.content | snippet }}</article>
     </div>
@@ -28,14 +28,12 @@ export default {
   methods: {},
   created() {
     this.$http.get("http://localhost:8081/blog").then((response) => {
-      console.log(response.data);
-      console.log(typeof response.data);
       this.blogs = response.data;
     });
   },
   computed: {},
   filters: {
-    toUppercase(value) {
+    uppercase(value) {
       return value.toUpperCase();
     },
   },

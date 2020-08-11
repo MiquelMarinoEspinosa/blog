@@ -8,8 +8,11 @@
 import { shallowMount } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
 
-describe("AddBlog", () => {
-  const wrapper = shallowMount(AddBlog);
+describe("AddBlog initial render", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallowMount(AddBlog);
+  });
 
   it('contains the main div id "add-blog"', () => {
     expect(wrapper.html()).toContain('<div id="add-blog">');
@@ -40,27 +43,27 @@ describe("AddBlog", () => {
     expect(wrapper.html()).toContain('<div id="checkboxes">');
   });
 
-  it('checkboxes section contains "Ninjas" option', () => {
+  it('checkboxes section contains "Vue" option', () => {
     expect(wrapper.html()).toContain(
-      '<label>Ninjas</label> <input type="checkbox" value="ninjas">'
+      '<label>Vue</label> <input type="checkbox" value="vue">'
     );
   });
 
-  it('checkboxes section contains "Wizards" option', () => {
+  it('checkboxes section contains "React" option', () => {
     expect(wrapper.html()).toContain(
-      '<label>Wizards</label> <input type="checkbox" value="wizards">'
+      '<label>React</label> <input type="checkbox" value="react">'
     );
   });
 
-  it('checkboxes section contains "Mario" option', () => {
+  it('checkboxes section contains "Angular" option', () => {
     expect(wrapper.html()).toContain(
-      '<label>Mario</label> <input type="checkbox" value="mario">'
+      '<label>Angular</label> <input type="checkbox" value="angular">'
     );
   });
 
-  it('checkboxes section contains "Cheese" option', () => {
+  it('checkboxes section contains "Nodejs" option', () => {
     expect(wrapper.html()).toContain(
-      '<label>Cheese</label> <input type="checkbox" value="cheese">'
+      '<label>Nodejs</label> <input type="checkbox" value="nodejs">'
     );
   });
 
