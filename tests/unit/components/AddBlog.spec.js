@@ -8,7 +8,7 @@
 import { shallowMount } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
 
-describe("AddBlog initial render", () => {
+describe("AddBlog initial render: TITLE, MAIN DIV and FORM sections", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallowMount(AddBlog);
@@ -26,6 +26,13 @@ describe("AddBlog initial render", () => {
     expect(wrapper.html()).toContain("<form>");
     expect(wrapper.html()).toContain("</form>");
   });
+});
+
+describe("AddBlog initial render: FORM inputs TITLE and CONTENT", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallowMount(AddBlog);
+  });
 
   it('form section contains the "Blog Title"', () => {
     expect(wrapper.html()).toContain(
@@ -38,33 +45,75 @@ describe("AddBlog initial render", () => {
       "<label>Blog Content:</label> <textarea></textarea>"
     );
   });
+});
 
-  it("contains the checkboxes section", () => {
+describe("AddBlog initial render: FORM CATEGORIES", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallowMount(AddBlog);
+  });
+
+  it("contains the checkboxes categories section", () => {
     expect(wrapper.html()).toContain('<div id="checkboxes">');
   });
 
-  it('checkboxes section contains "Vue" option', () => {
+  it('checkboxes section contains "Vue" category option', () => {
     expect(wrapper.html()).toContain(
       '<label>Vue</label> <input type="checkbox" value="vue">'
     );
   });
 
-  it('checkboxes section contains "React" option', () => {
+  it('checkboxes section contains "React" category option', () => {
     expect(wrapper.html()).toContain(
       '<label>React</label> <input type="checkbox" value="react">'
     );
   });
 
-  it('checkboxes section contains "Angular" option', () => {
+  it('checkboxes section contains "Angular" category option', () => {
     expect(wrapper.html()).toContain(
       '<label>Angular</label> <input type="checkbox" value="angular">'
     );
   });
 
-  it('checkboxes section contains "Nodejs" option', () => {
+  it('checkboxes section contains "Nodejs" category option', () => {
     expect(wrapper.html()).toContain(
       '<label>Nodejs</label> <input type="checkbox" value="nodejs">'
     );
+  });
+});
+
+describe("AddBlog initial render: FORM AUTHORS", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallowMount(AddBlog);
+  });
+
+  it("contantins the 'Author' section", () => {
+    expect(wrapper.html()).toContain("<label>Author:</label>");
+  });
+
+  it("contains the authors select", () => {
+    expect(wrapper.html()).toContain("<select>");
+    expect(wrapper.html()).toContain("</select>");
+  });
+
+  it("contains the 'Luke Winslow' author option", () => {
+    expect(wrapper.html()).toContain("<option>Luke Winslow</option>");
+  });
+
+  it("contains the 'Mike Fernandez' author option", () => {
+    expect(wrapper.html()).toContain("<option>Mike Fernandez</option>");
+  });
+
+  it("contains the 'Don Hattaway' author option", () => {
+    expect(wrapper.html()).toContain("<option>Don Hattaway</option>");
+  });
+});
+
+describe("AddBlog initial render: PREVIEW SECTION", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallowMount(AddBlog);
   });
 
   it("contains the preview section", () => {
