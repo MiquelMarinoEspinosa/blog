@@ -1,36 +1,35 @@
-version: '3'
+version: "3"
 
 services:
-    node:
-        image: "node:slim"
-        user: "node"
-        container_name: blog.node_server
-        working_dir: /home/node/app
-        environment:
-            - NODE_ENV=production
-        volumes:
-            - ./:/home/node/app
-        ports:
-            - 8081:8081
-        command: "npm start"
-        networks:
-          blog_net:
-              ipv4_address: 172.19.0.2
-    
-    redis:
-        image: redis:alpine
-        container_name: blog.redis_server
-        ports:
-            - 6379:6379
-        networks:
-            blog_net:
-                ipv4_address: 172.19.0.3
-        tty: true
+  node:
+    image: "node:slim"
+    user: "node"
+    container_name: creating-blog.node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 8081:8081
+    command: "npm start"
+    networks:
+      blog_net:
+        ipv4_address: 172.19.0.2
+
+  redis:
+    image: redis:alpine
+    container_name: creating-blog.redis
+    ports:
+      - 6379:6379
+    networks:
+      blog_net:
+        ipv4_address: 172.19.0.3
+    tty: true
 
 networks:
-    blog_net:
-        driver: bridge
-        ipam:
-            config:
-            - subnet: 172.19.0.0/24
-        
+  blog_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/24

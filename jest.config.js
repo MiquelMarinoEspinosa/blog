@@ -5,6 +5,8 @@ module.exports = {
     "!**/node_modules/**",
     "!**/vendor/**",
     "!**/dist/**",
+    "!**/src/main.js",
+    "!**/src/routes.js",
+    "!**/src/App.vue",
   ],
-  //collectCoverage: true,
 };

@@ -1,5 +1,5 @@
 const redis = require("redis");
-const client = redis.createClient(6379, "blog.redis_server");
+const client = redis.createClient(6379, "creating-blog.redis");
 const { v4: uuidv4 } = require("uuid");
 
 client.on("error", function(error) {
