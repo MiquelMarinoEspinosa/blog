@@ -8,14 +8,21 @@
 import { shallowMount } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
 
-describe("AddBlog initial render: TITLE, MAIN DIV and FORM sections", () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallowMount(AddBlog);
-  });
+let wrapper;
 
+beforeAll(() => {
+  wrapper = shallowMount(AddBlog);
+});
+
+afterAll(() => {
+  wrapper = null;
+});
+
+describe("AddBlog initial render: TITLE, MAIN DIV and FORM sections", () => {
   it('contains the main div id "add-blog"', () => {
-    expect(wrapper.html()).toContain('<div id="add-blog">');
+    const divAddBlog = wrapper.find("#add-blog");
+    expect(divAddBlog.exists()).toBeTruthy();
+    expect(divAddBlog.html()).toMatchSnapshot();
   });
 
   it('contains the title "Add a New Blog Post"', () => {
@@ -29,11 +36,6 @@ describe("AddBlog initial render: TITLE, MAIN DIV and FORM sections", () => {
 });
 
 describe("AddBlog initial render: FORM inputs TITLE and CONTENT", () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallowMount(AddBlog);
-  });
-
   it('form section contains the "Blog Title"', () => {
     expect(wrapper.html()).toContain(
       '<label>Blog Title:</label> <input type="text" required="required">'
@@ -48,11 +50,6 @@ describe("AddBlog initial render: FORM inputs TITLE and CONTENT", () => {
 });
 
 describe("AddBlog initial render: FORM CATEGORIES", () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallowMount(AddBlog);
-  });
-
   it("contains the checkboxes categories section", () => {
     expect(wrapper.html()).toContain('<div id="checkboxes">');
   });
@@ -83,11 +80,6 @@ describe("AddBlog initial render: FORM CATEGORIES", () => {
 });
 
 describe("AddBlog initial render: FORM AUTHORS", () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallowMount(AddBlog);
-  });
-
   it("contantins the 'Author' section", () => {
     expect(wrapper.html()).toContain("<label>Author:</label>");
   });
@@ -111,11 +103,6 @@ describe("AddBlog initial render: FORM AUTHORS", () => {
 });
 
 describe("AddBlog initial render: PREVIEW SECTION", () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallowMount(AddBlog);
-  });
-
   it("contains the preview section", () => {
     expect(wrapper.html()).toContain('<div id="preview">');
   });
