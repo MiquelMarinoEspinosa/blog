@@ -23,4 +23,16 @@ describe("AddBlog initial render and creating a blog entry", () => {
   it("renders the initial html", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
+
+  it("fills out the form fields and updates the preview section", async () => {
+    const blogTitle = wrapper.get("input[type=text]");
+    await blogTitle.setValue("New Blog");
+    const blogContent = wrapper.get("textarea");
+    await blogContent.setValue("New Blog Content");
+    const vueCategory = wrapper.get("input[value=vue]");
+    await vueCategory.setChecked();
+    const options = wrapper.get("select").findAll("option");
+    await options.at(0).setSelected();
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });

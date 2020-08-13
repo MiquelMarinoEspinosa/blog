@@ -3,9 +3,9 @@
     <h2>Add a New Blog Post</h2>
     <form v-if="!submitted">
       <label>Blog Title:</label>
-      <input type="text" required v-model.lazy="blog.title" />
+      <input type="text" required v-model="blog.title" />
       <label>Blog Content:</label>
-      <textarea v-model.lazy="blog.content"></textarea>
+      <textarea v-model="blog.content"></textarea>
 
       <div id="checkboxes">
         <label>Vue</label>
@@ -19,7 +19,9 @@
       </div>
       <label>Author:</label>
       <select v-model="blog.author">
-        <option v-for="(author, index) in authors" :key="index">{{ author }}</option>
+        <option v-for="(author, index) in authors" :key="index">
+          {{ author }}
+        </option>
       </select>
       <button @click.prevent="post">Add Blog</button>
     </form>
@@ -33,7 +35,9 @@
       <p>{{ blog.content }}</p>
       <p>Blog categories:</p>
       <ul>
-        <li v-for="(category, index) in blog.categories" :key="index">{{ category }}</li>
+        <li v-for="(category, index) in blog.categories" :key="index">
+          {{ category }}
+        </li>
       </ul>
       <p>Author: {{ blog.author }}</p>
     </div>
