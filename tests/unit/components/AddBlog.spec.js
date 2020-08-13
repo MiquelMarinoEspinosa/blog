@@ -8,118 +8,19 @@
 import { shallowMount } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
 
-let wrapper;
+describe("AddBlog initial render and creating a blog entry", () => {
+  let wrapper;
 
-beforeAll(() => {
-  wrapper = shallowMount(AddBlog);
-});
-
-afterAll(() => {
-  wrapper = null;
-});
-
-describe("AddBlog initial render: TITLE, MAIN DIV and FORM sections", () => {
-  it('contains the main div id "add-blog"', () => {
-    const divAddBlog = wrapper.find("#add-blog");
-    expect(divAddBlog.exists()).toBeTruthy();
-    expect(divAddBlog.html()).toMatchSnapshot();
+  beforeEach(() => {
+    wrapper = shallowMount(AddBlog);
+    wrapper.setData({
+      authors: ["Author 1", "Author 2", "Author 3"],
+    });
   });
-
-  it('contains the title "Add a New Blog Post"', () => {
-    expect(wrapper.html()).toContain("<h2>Add a New Blog Post</h2>");
+  afterEach(() => {
+    wrapper = null;
   });
-
-  it("contains the form section", () => {
-    expect(wrapper.html()).toContain("<form>");
-    expect(wrapper.html()).toContain("</form>");
-  });
-});
-
-describe("AddBlog initial render: FORM inputs TITLE and CONTENT", () => {
-  it('form section contains the "Blog Title"', () => {
-    expect(wrapper.html()).toContain(
-      '<label>Blog Title:</label> <input type="text" required="required">'
-    );
-  });
-
-  it('form section contains the "Blog Content" label', () => {
-    expect(wrapper.html()).toContain(
-      "<label>Blog Content:</label> <textarea></textarea>"
-    );
-  });
-});
-
-describe("AddBlog initial render: FORM CATEGORIES", () => {
-  it("contains the checkboxes categories section", () => {
-    expect(wrapper.html()).toContain('<div id="checkboxes">');
-  });
-
-  it('checkboxes section contains "Vue" category option', () => {
-    expect(wrapper.html()).toContain(
-      '<label>Vue</label> <input type="checkbox" value="vue">'
-    );
-  });
-
-  it('checkboxes section contains "React" category option', () => {
-    expect(wrapper.html()).toContain(
-      '<label>React</label> <input type="checkbox" value="react">'
-    );
-  });
-
-  it('checkboxes section contains "Angular" category option', () => {
-    expect(wrapper.html()).toContain(
-      '<label>Angular</label> <input type="checkbox" value="angular">'
-    );
-  });
-
-  it('checkboxes section contains "Nodejs" category option', () => {
-    expect(wrapper.html()).toContain(
-      '<label>Nodejs</label> <input type="checkbox" value="nodejs">'
-    );
-  });
-});
-
-describe("AddBlog initial render: FORM AUTHORS", () => {
-  it("contantins the 'Author' section", () => {
-    expect(wrapper.html()).toContain("<label>Author:</label>");
-  });
-
-  it("contains the authors select", () => {
-    expect(wrapper.html()).toContain("<select>");
-    expect(wrapper.html()).toContain("</select>");
-  });
-
-  it("contains the 'Luke Winslow' author option", () => {
-    expect(wrapper.html()).toContain("<option>Luke Winslow</option>");
-  });
-
-  it("contains the 'Mike Fernandez' author option", () => {
-    expect(wrapper.html()).toContain("<option>Mike Fernandez</option>");
-  });
-
-  it("contains the 'Don Hattaway' author option", () => {
-    expect(wrapper.html()).toContain("<option>Don Hattaway</option>");
-  });
-});
-
-describe("AddBlog initial render: PREVIEW SECTION", () => {
-  it("contains the preview section", () => {
-    expect(wrapper.html()).toContain('<div id="preview">');
-  });
-
-  it('preview section contains the title "Preview Blog"', () => {
-    expect(wrapper.html()).toContain("<h3>Preview Blog</h3>");
-  });
-
-  it('preview section contains the "Blog title"', () => {
-    expect(wrapper.html()).toContain("<p>Blog title: </p>");
-  });
-
-  it('preview section contains the "Blog content"', () => {
-    expect(wrapper.html()).toContain("<p>Blog content:</p>\n    <p></p>");
-  });
-
-  it('preview section contians the "Blog categories"', () => {
-    expect(wrapper.html()).toContain("<p>Blog categories:</p>");
+  it("renders the initial html", () => {
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

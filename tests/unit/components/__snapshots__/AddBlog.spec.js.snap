@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddBlog initial render: TITLE, MAIN DIV and FORM sections contains the main div id "add-blog" 1`] = `
+exports[`AddBlog initial render and creating a blog entry renders the initial html 1`] = `
 <div id="add-blog">
   <h2>Add a New Blog Post</h2>
   <form><label>Blog Title:</label> <input type="text" required="required"> <label>Blog Content:</label> <textarea></textarea>
     <div id="checkboxes"><label>Vue</label> <input type="checkbox" value="vue"> <label>React</label> <input type="checkbox" value="react"> <label>Angular</label> <input type="checkbox" value="angular"> <label>Nodejs</label> <input type="checkbox" value="nodejs"></div> <label>Author:</label> <select>
-      <option>Luke Winslow</option>
-      <option>Mike Fernandez</option>
-      <option>Don Hattaway</option>
+      <option>Author 1</option>
+      <option>Author 2</option>
+      <option>Author 3</option>
     </select> <button>Add Blog</button>
   </form>
   <!---->
