@@ -7,6 +7,9 @@
 
 import { shallowMount } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
+import axios from "axios";
+
+jest.mock("axios");
 
 describe("AddBlog initial render and creating a blog entry", () => {
   let wrapper;
@@ -17,6 +20,7 @@ describe("AddBlog initial render and creating a blog entry", () => {
       authors: ["Author 1", "Author 2", "Author 3"],
     });
   });
+
   afterEach(() => {
     wrapper = null;
   });
@@ -33,6 +37,29 @@ describe("AddBlog initial render and creating a blog entry", () => {
     await vueCategory.setChecked();
     const options = wrapper.get("select").findAll("option");
     await options.at(0).setSelected();
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+
+  it("send the form", async () => {
+    const blog = {
+      title: "New Blog",
+      content: "New Blog Content",
+      categories: ["vue"],
+      author: "Author 1",
+    };
+    const blogTitle = wrapper.get("input[type=text]");
+    await blogTitle.setValue(blog.title);
+    const blogContent = wrapper.get("textarea");
+    await blogContent.setValue(blog.content);
+    const vueCategory = wrapper.get("input[value=vue]");
+    await vueCategory.setChecked();
+    const options = wrapper.get("select").findAll("option");
+    await options.at(0).setSelected();
+    axios.post.mockResolvedValue();
+    const submit = wrapper.get("button");
+    await submit.trigger("click");
+    expect(axios.post).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalledWith("http://localhost:8081/blog", blog);
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
