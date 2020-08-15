@@ -30,13 +30,14 @@ describe("AddBlog initial render and creating a blog entry", () => {
 
   it("fills out the form fields and updates the preview section", async () => {
     const blogTitle = wrapper.get("input[type=text]");
-    await blogTitle.setValue("New Blog");
+    blogTitle.setValue("New Blog");
     const blogContent = wrapper.get("textarea");
-    await blogContent.setValue("New Blog Content");
+    blogContent.setValue("New Blog Content");
     const vueCategory = wrapper.get("input[value=vue]");
-    await vueCategory.setChecked();
+    vueCategory.setChecked();
     const options = wrapper.get("select").findAll("option");
-    await options.at(0).setSelected();
+    options.at(0).setSelected();
+    await Vue.nextTick();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
@@ -48,13 +49,14 @@ describe("AddBlog initial render and creating a blog entry", () => {
       author: "Author 1",
     };
     const blogTitle = wrapper.get("input[type=text]");
-    await blogTitle.setValue(blog.title);
+    blogTitle.setValue(blog.title);
     const blogContent = wrapper.get("textarea");
-    await blogContent.setValue(blog.content);
+    blogContent.setValue(blog.content);
     const vueCategory = wrapper.get("input[value=vue]");
-    await vueCategory.setChecked();
+    vueCategory.setChecked();
     const options = wrapper.get("select").findAll("option");
-    await options.at(0).setSelected();
+    options.at(0).setSelected();
+    await Vue.nextTick();
     axios.post.mockResolvedValue(() => {});
     const submit = wrapper.get("button");
     submit.trigger("click");
