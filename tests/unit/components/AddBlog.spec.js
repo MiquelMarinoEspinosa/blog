@@ -4,11 +4,11 @@
     - change the input's text values using the value attribute
     - use await for changin events like mouse clicks or blur
 */
-
+import Vue from "vue";
 import { shallowMount } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
 import axios from "axios";
-
+Vue.prototype.$http = axios;
 jest.mock("axios");
 
 describe("AddBlog initial render and creating a blog entry", () => {
@@ -55,9 +55,10 @@ describe("AddBlog initial render and creating a blog entry", () => {
     await vueCategory.setChecked();
     const options = wrapper.get("select").findAll("option");
     await options.at(0).setSelected();
-    axios.post.mockResolvedValue();
+    axios.post.mockResolvedValue(() => {});
     const submit = wrapper.get("button");
-    await submit.trigger("click");
+    submit.trigger("click");
+    await Vue.nextTick();
     expect(axios.post).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledWith("http://localhost:8081/blog", blog);
     expect(wrapper.html()).toMatchSnapshot();
