@@ -1,28 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddBlog initial render and creating a blog entry renders the initial html 1`] = `
-<div id="add-blog">
-  <h2>Add a New Blog Post</h2>
-  <form><label>Blog Title:</label> <input type="text" required="required"> <label>Blog Content:</label> <textarea></textarea>
-    <div id="checkboxes"><label>Vue</label> <input type="checkbox" value="vue"> <label>React</label> <input type="checkbox" value="react"> <label>Angular</label> <input type="checkbox" value="angular"> <label>Nodejs</label> <input type="checkbox" value="nodejs"></div> <label>Author:</label> <select>
-      <option>Author 1</option>
-      <option>Author 2</option>
-      <option>Author 3</option>
-    </select> <button>Add Blog</button>
-  </form>
-  <!---->
-  <div id="preview">
-    <h3>Preview Blog</h3>
-    <p>Blog title: </p>
-    <p>Blog content:</p>
-    <p></p>
-    <p>Blog categories:</p>
-    <ul></ul>
-    <p>Author: </p>
-  </div>
-</div>
-`;
-
 exports[`AddBlog initial render and creating a blog entry fills out the form fields and updates the preview section 1`] = `
 <div id="add-blog">
   <h2>Add a New Blog Post</h2>
@@ -48,7 +25,30 @@ exports[`AddBlog initial render and creating a blog entry fills out the form fie
 </div>
 `;
 
-exports[`AddBlog initial render and creating a blog entry send the form 1`] = `
+exports[`AddBlog initial render and creating a blog entry renders the initial html 1`] = `
+<div id="add-blog">
+  <h2>Add a New Blog Post</h2>
+  <form><label>Blog Title:</label> <input type="text" required="required"> <label>Blog Content:</label> <textarea></textarea>
+    <div id="checkboxes"><label>Vue</label> <input type="checkbox" value="vue"> <label>React</label> <input type="checkbox" value="react"> <label>Angular</label> <input type="checkbox" value="angular"> <label>Nodejs</label> <input type="checkbox" value="nodejs"></div> <label>Author:</label> <select>
+      <option>Author 1</option>
+      <option>Author 2</option>
+      <option>Author 3</option>
+    </select> <button>Add Blog</button>
+  </form>
+  <!---->
+  <div id="preview">
+    <h3>Preview Blog</h3>
+    <p>Blog title: </p>
+    <p>Blog content:</p>
+    <p></p>
+    <p>Blog categories:</p>
+    <ul></ul>
+    <p>Author: </p>
+  </div>
+</div>
+`;
+
+exports[`AddBlog initial render and creating a blog entry send the form and create the blog entry 1`] = `
 <div id="add-blog">
   <h2>Add a New Blog Post</h2>
   <!---->

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header nav links renders the inital html 1`] = `
+<nav>
+  <ul>
+    <li>
+      <router-link-stub to="/" tag="a" exact="true" ariacurrentvalue="page" event="click">Blog</router-link-stub>
+    </li>
+    <li>
+      <router-link-stub to="/add" tag="a" exact="true" ariacurrentvalue="page" event="click">Add a New Blog</router-link-stub>
+    </li>
+  </ul>
+</nav>
+`;
