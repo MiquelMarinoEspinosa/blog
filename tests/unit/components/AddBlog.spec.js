@@ -1,16 +1,17 @@
-import Vue from "vue";
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import AddBlog from "@/components/AddBlog.vue";
 import axios from "axios";
 
-Vue.prototype.$http = axios;
+const localVue = createLocalVue();
+localVue.prototype.$http = axios;
 jest.mock("axios");
 
 describe("AddBlog initial render and creating a blog entry", () => {
   let addBlog;
 
   beforeEach(() => {
-    addBlog = shallowMount(AddBlog);
+    jest.clearAllMocks();
+    addBlog = shallowMount(AddBlog, { localVue });
     addBlog.setData({
       authors: ["Author 1", "Author 2", "Author 3"],
     });
@@ -32,7 +33,7 @@ describe("AddBlog initial render and creating a blog entry", () => {
     vueCategory.setChecked();
     const options = addBlog.get("select").findAll("option");
     options.at(0).setSelected();
-    await Vue.nextTick();
+    await localVue.nextTick();
     expect(addBlog.html()).toMatchSnapshot();
   });
 
@@ -51,11 +52,11 @@ describe("AddBlog initial render and creating a blog entry", () => {
     vueCategory.setChecked();
     const options = addBlog.get("select").findAll("option");
     options.at(0).setSelected();
-    await Vue.nextTick();
-    axios.post.mockResolvedValue(() => {});
+    await localVue.nextTick();
+    axios.post.mockResolvedValue();
     const submit = addBlog.get("button");
     submit.trigger("click");
-    await Vue.nextTick();
+    await localVue.nextTick();
     expect(axios.post).toHaveBeenCalledTimes(1);
     expect(axios.post).toHaveBeenCalledWith("http://localhost:8081/blog", blog);
     expect(addBlog.html()).toMatchSnapshot();

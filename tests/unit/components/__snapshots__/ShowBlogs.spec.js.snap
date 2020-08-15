@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Showblogs list of blogs renders an empty list of blogs 1`] = `
+<div id="show-blogs">
+  <h1>All Blog Articles</h1> <input type="text" placeholder="search blogs">
+</div>
+`;
+
+exports[`Showblogs list of blogs search by title into an empty blogs list returns an empty list 1`] = `
+<div id="show-blogs">
+  <h1>All Blog Articles</h1> <input type="text" placeholder="search blogs">
+</div>
+`;
+
+exports[`Showblogs list of blogs renders a list with some blogs entries 1`] = `
+<div id="show-blogs">
+  <h1>All Blog Articles</h1> <input type="text" placeholder="search blogs">
+  <div class="single-blog">
+    <router-link-stub to="/blog/undefined" tag="a" ariacurrentvalue="page" event="click">
+      <h2>BLOG 1</h2>
+    </router-link-stub>
+    <article>Blog content 1...</article>
+  </div>
+  <div class="single-blog">
+    <router-link-stub to="/blog/undefined" tag="a" ariacurrentvalue="page" event="click">
+      <h2>BLOG 2</h2>
+    </router-link-stub>
+    <article>Blog content 2...</article>
+  </div>
+  <div class="single-blog">
+    <router-link-stub to="/blog/undefined" tag="a" ariacurrentvalue="page" event="click">
+      <h2>BLOG 3</h2>
+    </router-link-stub>
+    <article>Blog content 3...</article>
+  </div>
+</div>
+`;
+
+exports[`Showblogs list of blogs search by title into an empty blogs list returns list with 2 items 1`] = `
+<div id="show-blogs">
+  <h1>All Blog Articles</h1> <input type="text" placeholder="search blogs">
+  <div class="single-blog">
+    <router-link-stub to="/blog/undefined" tag="a" ariacurrentvalue="page" event="click">
+      <h2>ANOTHER BLOG 1</h2>
+    </router-link-stub>
+    <article>Blog content 1...</article>
+  </div>
+  <div class="single-blog">
+    <router-link-stub to="/blog/undefined" tag="a" ariacurrentvalue="page" event="click">
+      <h2>ANOTHER BLOG 2</h2>
+    </router-link-stub>
+    <article>Blog content 2...</article>
+  </div>
+</div>
+`;

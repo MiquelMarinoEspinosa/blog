@@ -1,14 +1,15 @@
-import Vue from "vue";
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Header from "@/components/Header";
 import VueRouter from "vue-router";
 
-Vue.use(VueRouter);
+const localVue = createLocalVue();
+localVue.use(VueRouter);
 
 describe("Header nav links", () => {
   let header;
+
   beforeEach(() => {
-    header = shallowMount(Header);
+    header = shallowMount(Header, { localVue });
   });
   afterEach(() => {
     header = null;
