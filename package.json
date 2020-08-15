@@ -6,8 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit --verbose",
-    "test:unit:coverage": "vue-cli-service test:unit --coverage",
+    "test:unit:coverage": "vue-cli-service test:unit --coverage --verbose",
     "test:unit:update-snapshots": "vue-cli-service test:unit --updateSnapshot",
+    "test:unit:no-commit": "vue-cli-service test:unit -o --verbose",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "start": "node server.js"
