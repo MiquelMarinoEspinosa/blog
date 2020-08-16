@@ -7,7 +7,7 @@
       v-for="(blog, index) in filteredBlogs"
       :key="index"
     >
-      <h2 v-rainbow>{{ blog.title | uppercase }}</h2>
+      <h2>{{ blog.title | uppercase }}</h2>
     </div>
   </div>
 </template>
@@ -32,17 +32,6 @@ export default {
   filters: {
     uppercase(value) {
       return value.toUpperCase();
-    },
-  },
-  directives: {
-    rainbow: {
-      bind(el) {
-        el.style.color =
-          "#" +
-          Math.random()
-            .toString()
-            .slice(2, 8);
-      },
     },
   },
   mixins: [SearchMixin],

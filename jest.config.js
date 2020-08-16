@@ -6,7 +6,5 @@ module.exports = {
     "!**/vendor/**",
     "!**/dist/**",
     "!**/src/main.js",
-    "!**/src/routes.js",
-    "!**/src/App.vue",
   ],
 };

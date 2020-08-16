@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+exports[`ListBlogs renders an empty blogs list 1`] = `
+<div id="show-blogs">
+  <h1>List Blog Titles</h1> <input type="text" placeholder="search blogs">
+</div>
+`;
+
+exports[`ListBlogs search in an empty list returns an empty list blogs 1`] = `
+<div id="show-blogs">
+  <h1>List Blog Titles</h1> <input type="text" placeholder="search blogs">
+</div>
+`;
+
+exports[`ListBlogs renders a blogs list 1`] = `
+<div id="show-blogs">
+  <h1>List Blog Titles</h1> <input type="text" placeholder="search blogs">
+  <div class="single-blog">
+    <h2>BLOG 1</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 2</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 3</h2>
+  </div>
+</div>
+`;
+
+
+exports[`ListBlogs search and return 2 blogs items 1`] = `
+<div id="show-blogs">
+  <h1>List Blog Titles</h1> <input type="text" placeholder="search blogs">
+  <div class="single-blog">
+    <h2>ANOTHER BLOG 1</h2>
+  </div>
+  <div class="single-blog">
+    <h2>ANOTHER BLOG 2</h2>
+  </div>
+</div>
+`;
+
+exports[`ListBlogs does not return mode than 10 blog items 1`] = `
+<div id="show-blogs">
+  <h1>List Blog Titles</h1> <input type="text" placeholder="search blogs">
+  <div class="single-blog">
+    <h2>BLOG 1</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 2</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 3</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 4</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 5</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 6</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 7</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 8</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 9</h2>
+  </div>
+  <div class="single-blog">
+    <h2>BLOG 10</h2>
+  </div>
+</div>
+`;
