@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleBlog retrieves the single blog 1`] = `
+<div id="single-blog">
+  <div>
+    <h1>Blog 1</h1>
+    <article>Blog content 1</article>
+    <p>Author: Author 1</p>
+    <p>Categories:</p>
+    <ul>
+      <li>vue</li>
+      <li>react</li>
+      <li>node</li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`SingleBlog has happened an error and no blog was retreived 1`] = `
+<div id="single-blog">
+  <div>
+    <h1>Blog not found</h1>
+    <article>ID: e2e6d160-15ff-4d30-92ce-2799eb7fe5b</article>
+    <p>Something went wrong :(</p>
+  </div>
+</div>
+`;
