@@ -14,7 +14,7 @@ This is a micro project which allows to create a blog entry, list the blog entri
 
 The development environment has been dockerized.
 
-There are unit tests implemented with Jest and e2e tests implemented with Cypress.
+There are unit tests implemented with `Jest` using its snapshot feature and e2e tests implemented with `Cypres`.
 
 Redis is the technology used as database.
 
