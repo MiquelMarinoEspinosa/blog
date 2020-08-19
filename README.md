@@ -95,6 +95,5 @@ To explore the database from the host
 ```
 redis-cli
 keys *
-smembers
 smembers blogs
 ```
